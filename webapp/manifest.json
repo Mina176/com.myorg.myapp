@@ -1,6 +1,5 @@
 {
 	"_version": "1.21.0",
-
 	"sap.app": {
 		"id": "com.myorg.myapp",
 		"type": "application",
@@ -15,7 +14,6 @@
 			"version": "1.1.0"
 		}
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {},
@@ -25,14 +23,12 @@
 			"phone": true
 		}
 	},
-
 	"sap.ui5": {
 		"rootView": {
 			"viewName": "com.myorg.myapp.view.App",
 			"type": "XML",
 			"id": "app"
 		},
-
 		"dependencies": {
 			"minUI5Version": "1.150.0",
 			"libs": {
@@ -40,20 +36,20 @@
 				"sap.m": {}
 			}
 		},
-
 		"handleValidation": true,
-
 		"contentDensities": {
 			"compact": true,
 			"cozy": true
 		},
-
 		"models": {
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
 					"bundleName": "com.myorg.myapp.i18n.i18n",
-					"supportedLocales": ["en", "de"],
+					"supportedLocales": [
+						"en",
+						"de"
+					],
 					"fallbackLocale": "en",
 					"async": true
 				}
@@ -63,7 +59,6 @@
 				"uri": "model/employees.json"
 			}
 		},
-
 		"routing": {
 			"config": {
 				"routerClass": "sap.m.routing.Router",
