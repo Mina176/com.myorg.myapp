@@ -57,6 +57,10 @@
 					"fallbackLocale": "en",
 					"async": true
 				}
+			},
+			"employeeModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/employees.json"
 			}
 		},
 
