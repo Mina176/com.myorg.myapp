@@ -1,0 +1,36 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "position": "Software Engineer",
+      "department": "Engineering",
+      "attendance": [
+        {
+          "date": "2024-06-01",
+          "present": true
+        },
+        {
+          "date": "2024-06-02",
+          "present": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "position": "Product Manager",
+      "department": "Product",
+      "attendance": [
+        {
+          "date": "2024-06-01",
+          "present": true
+        },
+        {
+          "date": "2024-06-02",
+          "present": true
+        }
+      ]
+    }
+  ]
+}
