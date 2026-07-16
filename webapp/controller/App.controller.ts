@@ -8,9 +8,5 @@ export default class App extends BaseController {
 	public onInit(): void {
 		// apply content density mode to root view
 		this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
-
-		const model = new JSONModel();
-		model.loadData("model/employees.json");
-		this.getView().setModel(model);
 	}
 }
