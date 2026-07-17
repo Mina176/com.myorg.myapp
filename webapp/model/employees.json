@@ -31,6 +31,54 @@
           "present": true
         }
       ]
+    },
+    {
+      "id": 3,
+      "name": "Alice Johnson",
+      "position": "UX Designer",
+      "department": "Design",
+      "attendance": [
+        {
+          "date": "2024-06-01",
+          "present": false
+        },
+        {
+          "date": "2024-06-02",
+          "present": true
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Bob Brown",
+      "position": "Data Analyst",
+      "department": "Analytics",
+      "attendance": [
+        {
+          "date": "2024-06-01",
+          "present": true
+        },
+        {
+          "date": "2024-06-02",
+          "present": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Charlie Davis",
+      "position": "HR Specialist",
+      "department": "Human Resources",
+      "attendance": [
+        {
+          "date": "2024-06-01",
+          "present": true
+        },
+        {
+          "date": "2024-06-02",
+          "present": true
+        }
+      ]
     }
   ]
 }
