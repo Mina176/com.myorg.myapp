@@ -1,20 +1,22 @@
 <mvc:View xmlns:core="sap.ui.core"
   controllerName="com.myorg.myapp.controller.Detail"
   xmlns="sap.m"
-  xmlns:mvc="sap.ui.core.mvc">
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:custom="com.myorg.myapp.control"
+  >
   <Page
-  id="detailPage"
+  id="idDetailPage"
     title="{i18n>titleText}"
     showNavButton="true"
-    navButtonPress="onNavBack"
+    navButtonPress="onPageNavButtonPress"
     >
     <ObjectHeader
-      id="detailObjectHeaderId"
+      id="idPositionObjectHeader"
       intro="{employeeModel>department}"
       title="{employeeModel>name}"
       number="{employeeModel>position}"/>
 
-    <Table id="detailTableId"
+    <Table id="idAttendanceTable"
         items="{employeeModel>attendance}" 
         headerText="Attendance Records"
         noDataText="No attendance records found"
@@ -22,34 +24,42 @@
         width="auto"
         >
         <columns>
-            <Column id="detailDateColumnId" hAlign="Center">
-                <Text id="headerDateId" text="Date" />
+            <Column id="idDetailDateColumn" hAlign="Center">
+                <Text id="idDateHeaderText" text="Date" />
             </Column>
-            <Column id="detailCheckInColumnId" hAlign="Center">
-                <Text id="checkInId" text="Check In" />
+            <Column id="iddetailCheckInColumn" hAlign="Center">
+                <Text id="idCheckInText" text="Check In" />
             </Column>
-            <Column id="detailCheckOutColumnId" hAlign="Center">
-                <Text id="checkOutId" text="Check Out" />
+            <Column id="iddetailCheckOutColumn" hAlign="Center">
+                <Text id="idCheckOutText" text="Check Out" />
             </Column>
-            <Column id="statusDetailColumnId" hAlign="Center">
-                <Text id="statusId" text="Present" />
+            <Column id="idstatusDetailColumn" hAlign="Center">
+                <Text id="idPresentText" text="Present" />
             </Column>
         </columns>
         <items>
-            <ColumnListItem id="detailColumnListItemId">
+            <ColumnListItem id="idDetailColumnListItem">
                 <cells>
-                    <Text id="dateId" text="{employeeModel>date}" />
-                    <Text id="checkIn" text="{employeeModel>checkedIn}" />
-                    <Text id="checkOut" text="{employeeModel>checkedOut}" />
-                    <!-- two binding for present boolean -->  
-                    <core:Icon id="switchId"
-                               src="{= ${employeeModel>present} ? 'sap-icon://accept' : 'sap-icon://decline' }"
-                               color="{= ${employeeModel>present} ? 'Positive' : 'Negative' }"
-                               size="1.2rem"
-                        />
+                <Text id="idDateText" text="{employeeModel>date}" />
+                    <Text id="idCheckedInText" text="{employeeModel>checkedIn}" />
+                    <Text id="idCheckedOutText" text="{employeeModel>checkedOut}" />
+                <custom:EmployeePerformance id="idRatingEmployeePerformance" 
+                value="{employeeModel>rating}"
+            dateText="{employeeModel>date}">
+                </custom:EmployeePerformance>    
                 </cells>
             </ColumnListItem>
         </items>
     </Table>
   </Page>
 </mvc:View>
+<!-- 
+<Text id="dateId" text="{employeeModel>date}" />
+                    <Text id="checkIn" text="{employeeModel>checkedIn}" />
+                    <Text id="checkOut" text="{employeeModel>checkedOut}" />
+                    two binding for present boolean  
+                    <core:Icon id="switchId"
+                               src="{= ${employeeModel>present} ? 'sap-icon://accept' : 'sap-icon://decline' }"
+                               color="{= ${employeeModel>present} ? 'Positive' : 'Negative' }"
+                               size="1.2rem"
+                        /> -->
