@@ -24,6 +24,7 @@
 		}
 	},
 	"sap.ui5": {
+		"flexEnabled": true,
 		"rootView": {
 			"viewName": "com.myorg.myapp.view.App",
 			"type": "XML",
