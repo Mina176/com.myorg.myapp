@@ -26,7 +26,7 @@ export default class Detail extends Controller {
         });
     }
 
-    onNavBack(): void {
+    onPageNavButtonPress(): void {
         const history = History.getInstance();
         const previousHash = history.getPreviousHash();
 
