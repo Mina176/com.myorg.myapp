@@ -8,10 +8,14 @@
       "attendance": [
         {
           "date": "2024-06-01",
+          "checkedIn": "09:00 AM",
+          "checkedOut": "17:00 PM",
           "present": true
         },
         {
           "date": "2024-06-02",
+          "checkedIn": "08:00 AM",
+          "checkedOut": "17:00 PM",
           "present": false
         }
       ]
@@ -24,10 +28,14 @@
       "attendance": [
         {
           "date": "2024-06-01",
+          "checkedIn": "09:00 AM",
+          "checkedOut": "13:00 PM",
           "present": true
         },
         {
           "date": "2024-06-02",
+          "checkedIn": "09:00 AM",
+          "checkedOut": "16:00 PM",
           "present": true
         }
       ]
@@ -40,10 +48,14 @@
       "attendance": [
         {
           "date": "2024-06-01",
+          "checkedIn": "09:00 AM",
+          "checkedOut": "17:00 PM",
           "present": false
         },
         {
           "date": "2024-06-02",
+          "checkedIn": "09:00 AM",
+          "checkedOut": "17:00 PM",
           "present": true
         }
       ]
@@ -56,10 +68,14 @@
       "attendance": [
         {
           "date": "2024-06-01",
+          "checkedIn": "09:00 AM",
+          "checkedOut": "17:00 PM",
           "present": true
         },
         {
           "date": "2024-06-02",
+          "checkedIn": "09:00 AM",
+          "checkedOut": "17:00 PM",
           "present": false
         }
       ]
@@ -72,10 +88,14 @@
       "attendance": [
         {
           "date": "2024-06-01",
+          "checkedIn": "09:00 AM",
+          "checkedOut": "17:00 PM",
           "present": true
         },
         {
           "date": "2024-06-02",
+          "checkedIn": "09:00 AM",
+          "checkedOut": "17:00 PM",
           "present": true
         }
       ]

@@ -1,4 +1,4 @@
-<mvc:View
+<mvc:View xmlns:core="sap.ui.core"
   controllerName="com.myorg.myapp.controller.Detail"
   xmlns="sap.m"
   xmlns:mvc="sap.ui.core.mvc">
@@ -6,11 +6,50 @@
   id="detailPage"
     title="{i18n>titleText}"
     showNavButton="true"
-    navButtonPress="onNavBack">
-    <content>
-    <Text id="empNameId"
-        text="{employeeModel>name}">
-    </Text>
-    </content>
+    navButtonPress="onNavBack"
+    >
+    <ObjectHeader
+      id="detailObjectHeaderId"
+      intro="{employeeModel>department}"
+      title="{employeeModel>name}"
+      number="{employeeModel>position}"/>
+
+    <Table id="detailTableId"
+        items="{employeeModel>attendance}" 
+        headerText="Attendance Records"
+        noDataText="No attendance records found"
+        class="sapUiSmallMarginBeginEnd"
+        width="auto"
+        >
+        <columns>
+            <Column id="detailDateColumnId" hAlign="Center">
+                <Text id="headerDateId" text="Date" />
+            </Column>
+            <Column id="detailCheckInColumnId" hAlign="Center">
+                <Text id="checkInId" text="Check In" />
+            </Column>
+            <Column id="detailCheckOutColumnId" hAlign="Center">
+                <Text id="checkOutId" text="Check Out" />
+            </Column>
+            <Column id="statusDetailColumnId" hAlign="Center">
+                <Text id="statusId" text="Present" />
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem id="detailColumnListItemId">
+                <cells>
+                    <Text id="dateId" text="{employeeModel>date}" />
+                    <Text id="checkIn" text="{employeeModel>checkedIn}" />
+                    <Text id="checkOut" text="{employeeModel>checkedOut}" />
+                    <!-- two binding for present boolean -->  
+                    <core:Icon id="switchId"
+                               src="{= ${employeeModel>present} ? 'sap-icon://accept' : 'sap-icon://decline' }"
+                               color="{= ${employeeModel>present} ? 'Positive' : 'Negative' }"
+                               size="1.2rem"
+                        />
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
   </Page>
 </mvc:View>
