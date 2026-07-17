@@ -16,7 +16,9 @@
 			<items>
 			<StandardListItem title="{employeeModel>name}"
                 description="{employeeModel>position}"
-                type="Active"/>
+                type="Active"
+				press="onStandardListItemPress"
+				/>
 			</items>
 			</List>
 		</content>
