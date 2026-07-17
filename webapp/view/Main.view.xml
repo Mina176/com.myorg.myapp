@@ -12,9 +12,9 @@
 		title="{i18n>appTitle}"
 		id="idMainPage">
 		<content>
-				<List items="{employeeModel>/employees}" >
+				<List id="empListId" items="{employeeModel>/employees}" >
 			<items>
-			<StandardListItem title="{employeeModel>name}"
+			<StandardListItem id="StandardListItemId" title="{employeeModel>name}"
                 description="{employeeModel>position}"
                 type="Active"
 				press="onStandardListItemPress"
