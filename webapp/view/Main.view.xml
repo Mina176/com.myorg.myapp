@@ -16,7 +16,8 @@
 			<items>
 			<StandardListItem id="StandardListItemId" title="{employeeModel>name}"
                 description="{employeeModel>position}"
-                type="Active"
+                type="Navigation"
+				unread="false"
 				press="onStandardListItemPress"
 				/>
 			</items>
