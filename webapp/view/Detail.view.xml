@@ -1,4 +1,4 @@
-<mvc:View xmlns:core="sap.ui.core"
+<mvc:View 
   controllerName="com.myorg.myapp.controller.Detail"
   xmlns="sap.m"
   xmlns:mvc="sap.ui.core.mvc"
@@ -53,13 +53,3 @@
     </Table>
   </Page>
 </mvc:View>
-<!-- 
-<Text id="dateId" text="{employeeModel>date}" />
-                    <Text id="checkIn" text="{employeeModel>checkedIn}" />
-                    <Text id="checkOut" text="{employeeModel>checkedOut}" />
-                    two binding for present boolean  
-                    <core:Icon id="switchId"
-                               src="{= ${employeeModel>present} ? 'sap-icon://accept' : 'sap-icon://decline' }"
-                               color="{= ${employeeModel>present} ? 'Positive' : 'Negative' }"
-                               size="1.2rem"
-                        /> -->
