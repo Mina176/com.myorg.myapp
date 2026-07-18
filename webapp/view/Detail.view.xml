@@ -34,7 +34,7 @@
                 <Text id="idCheckOutText" text="Check Out" />
             </Column>
             <Column id="idstatusDetailColumn" hAlign="Center">
-                <Text id="idPresentText" text="Present" />
+                <Text id="idPerformanceText" text="Performance" />
             </Column>
         </columns>
         <items>
@@ -44,8 +44,7 @@
                     <Text id="idCheckedInText" text="{employeeModel>checkedIn}" />
                     <Text id="idCheckedOutText" text="{employeeModel>checkedOut}" />
                 <custom:EmployeePerformance id="idRatingEmployeePerformance" 
-                value="{employeeModel>rating}"
-            dateText="{employeeModel>date}">
+                value="{employeeModel>rating}">
                 </custom:EmployeePerformance>    
                 </cells>
             </ColumnListItem>
