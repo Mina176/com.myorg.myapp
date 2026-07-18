@@ -17,6 +17,8 @@
       number="{employeeModel>position}"/>
 
     <Table id="idAttendanceTable"
+        autoPopinMode="true"
+        fixedLayout="false"
         items="{employeeModel>attendance}" 
         headerText="Attendance Records"
         noDataText="No attendance records found"
