@@ -28,7 +28,7 @@
 		"rootView": {
 			"viewName": "com.myorg.myapp.view.App",
 			"type": "XML",
-			"id": "app"
+			"id": "idApp"
 		},
 		"dependencies": {
 			"minUI5Version": "1.150.0",
@@ -66,7 +66,7 @@
 				"type": "View",
 				"viewType": "XML",
 				"path": "com.myorg.myapp.view",
-				"controlId": "app",
+				"controlId": "idApp",
 				"controlAggregation": "pages"
 			},
 			"routes": [

@@ -12,12 +12,11 @@
 		title="{i18n>appTitle}"
 		id="idMainPage">
 		<content>
-				<List id="empListId" items="{employeeModel>/employees}" >
+				<List id="idEmployeesList" items="{employeeModel>/employees}" >
 			<items>
-			<StandardListItem id="StandardListItemId" title="{employeeModel>name}"
+			<StandardListItem id="idStandardListItem" title="{employeeModel>name}"
                 description="{employeeModel>position}"
                 type="Navigation"
-				unread="false"
 				press="onStandardListItemPress"
 				/>
 			</items>
