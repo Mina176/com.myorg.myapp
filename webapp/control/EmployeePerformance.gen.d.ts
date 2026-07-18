@@ -9,9 +9,6 @@ declare module "./EmployeePerformance" {
      */
     interface $EmployeePerformanceSettings extends $ControlSettings {
         value?: number | PropertyBindingInfo | `{${string}}`;
-        dateText?: string | PropertyBindingInfo;
-        checkIn?: string | PropertyBindingInfo;
-        checkOut?: string | PropertyBindingInfo;
         change?: (event: EmployeePerformance$ChangeEvent) => void;
     }
 
@@ -20,18 +17,6 @@ declare module "./EmployeePerformance" {
         // property: value
         getValue(): number;
         setValue(value: number): this;
-
-        // property: dateText
-        getDateText(): string;
-        setDateText(dateText: string): this;
-
-        // property: checkIn
-        getCheckIn(): string;
-        setCheckIn(checkIn: string): this;
-
-        // property: checkOut
-        getCheckOut(): string;
-        setCheckOut(checkOut: string): this;
 
         // event: change
         attachChange(fn: (event: EmployeePerformance$ChangeEvent) => void, listener?: object): this;

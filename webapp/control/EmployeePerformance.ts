@@ -15,18 +15,6 @@ export default class EmployeePerformance extends Control {
             value: {
                 type: "float",
                 defaultValue: 0.0
-            },
-            dateText: {
-                type: "string",
-                defaultValue: ""
-            },
-            checkIn: {
-                type: "string",
-                defaultValue: ""
-            },
-            checkOut: {
-                type: "string",
-                defaultValue: ""
             }
         },
         aggregations: {
@@ -47,7 +35,7 @@ export default class EmployeePerformance extends Control {
     init(): void {
         const rating = new RatingIndicator({
             value: this.getValue(),
-            iconSize: "0.2rem",
+            iconSize: "1.6rem",
             liveChange: this._onRate.bind(this)
         });
         rating.addStyleClass("sapUiTinyMarginTopBottom");
@@ -61,19 +49,9 @@ export default class EmployeePerformance extends Control {
         return this;
     }
 
-    reset(): void {
-        this.setValue(0.0);
-        (this.getAggregation("_performance") as RatingIndicator).setEnabled(true);
-    }
-
-    _onRate(event: RatingIndicator$LiveChangeEvent): void {
+    private _onRate(event: RatingIndicator$LiveChangeEvent): void {
         const value = event.getParameter("value");
         this.setProperty("value", value, true);
-    }
-
-
-    onClick(): void {
-        this.fireEvent("badgePress");
     }
 
     static renderer = {
