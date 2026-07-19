@@ -10,12 +10,14 @@
           "date": "2024-06-01",
           "checkedIn": "09:00 AM",
           "checkedOut": "17:00 PM",
+          "overtime": "1 hour",
           "attendanceId": 101
         },
         {
           "date": "2024-06-02",
           "checkedIn": "08:00 AM",
           "checkedOut": "17:00 PM",
+          "overtime": "2 hours",
           "attendanceId": 102
         }
       ]
@@ -30,12 +32,14 @@
           "date": "2024-06-01",
           "checkedIn": "09:00 AM",
           "checkedOut": "13:00 PM",
+          "overtime": "0 hours",
           "attendanceId": 103
         },
         {
           "date": "2024-06-02",
           "checkedIn": "09:00 AM",
           "checkedOut": "16:00 PM",
+          "overtime": "1 hour",
           "attendanceId": 104
         }
       ]
@@ -50,12 +54,14 @@
           "date": "2024-06-01",
           "checkedIn": "09:00 AM",
           "checkedOut": "17:00 PM",
+          "overtime": "0 hours",
           "attendanceId": 105
         },
         {
           "date": "2024-06-02",
           "checkedIn": "09:00 AM",
           "checkedOut": "17:00 PM",
+          "overtime": "0 hours",
           "attendanceId": 106
         }
       ]
@@ -70,12 +76,14 @@
           "date": "2024-06-01",
           "checkedIn": "09:00 AM",
           "checkedOut": "17:00 PM",
+          "overtime": "0 hours",
           "attendanceId": 107
         },
         {
           "date": "2024-06-02",
           "checkedIn": "09:00 AM",
           "checkedOut": "17:00 PM",
+          "overtime": "0 hours",
           "attendanceId": 108
         }
       ]
@@ -90,12 +98,14 @@
           "date": "2024-06-01",
           "checkedIn": "09:00 AM",
           "checkedOut": "17:00 PM",
+          "overtime": "0 hours",
           "attendanceId": 109
         },
         {
           "date": "2024-06-02",
           "checkedIn": "09:00 AM",
           "checkedOut": "17:00 PM",
+          "overtime": "0 hours",
           "attendanceId": 110
         }
       ]

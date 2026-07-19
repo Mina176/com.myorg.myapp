@@ -30,30 +30,36 @@
              hAlign="Center"
              demandPopin="true" 
              minScreenWidth="Tablet" 
-             importance="Low">
+             importance="Medium">
                 <Text id="idAttendanceIDText" text="Attendance ID"  />
             </Column>
-            <Column id="idDateColumn" hAlign="Center">
+            <Column id="idDateColumn" hAlign="Center" importance="High">
                 <Text id="idDateHeaderText" text="Date" />
             </Column>
-            <Column id="idCheckInColumn" hAlign="Center">
+            <Column id="idCheckInColumn" hAlign="Center" importance="High">
                 <Text id="idCheckInText" text="Check In" />
             </Column>
-            <Column id="idCheckOutColumn" hAlign="Center">
+            <Column id="idCheckOutColumn" hAlign="Center" importance="High">
                 <Text id="idCheckOutText" text="Check Out" />
             </Column>
-            <Column id="idPerformanceColumn" hAlign="Center">
+            <Column id="idEmpIdColumn" hAlign="Center" 
+             demandPopin="true" 
+             minScreenWidth="Tablet" 
+             importance="Low">
+                <Text id="idOvertimeText" text="Overtime" />
+            </Column>
+            <Column id="idPerformanceColumn" hAlign="Center" importance="High">
                 <Text id="idPerformanceText" text="Performance" />
             </Column>
         </columns>
         <items>
             <ColumnListItem id="idColumnListItem">
                 <cells>
-                
                 <Text id="idAttendanceIdText" text="{employeeModel>attendanceId}" />
                 <Text id="idDateText" text="{employeeModel>date}" />
                     <Text id="idCheckedInText" text="{employeeModel>checkedIn}" />
                     <Text id="idCheckedOutText" text="{employeeModel>checkedOut}" />
+                <Text id="idOvertimeDataText" text="{employeeModel>overtime}" />
                 <custom:EmployeePerformance
                  id="idRatingEmployeePerformance" 
                 value="{employeeModel>rating}" />
