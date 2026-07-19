@@ -26,28 +26,37 @@
         width="auto"
         >
         <columns>
-            <Column id="idDetailDateColumn" hAlign="Center">
+            <Column id="idAttendanceIdColumn"
+             hAlign="Center"
+             demandPopin="true" 
+             minScreenWidth="Tablet" 
+             importance="Low">
+                <Text id="idAttendanceIDText" text="Attendance ID"  />
+            </Column>
+            <Column id="idDateColumn" hAlign="Center">
                 <Text id="idDateHeaderText" text="Date" />
             </Column>
-            <Column id="iddetailCheckInColumn" hAlign="Center">
+            <Column id="idCheckInColumn" hAlign="Center">
                 <Text id="idCheckInText" text="Check In" />
             </Column>
-            <Column id="iddetailCheckOutColumn" hAlign="Center">
+            <Column id="idCheckOutColumn" hAlign="Center">
                 <Text id="idCheckOutText" text="Check Out" />
             </Column>
-            <Column id="idstatusDetailColumn" hAlign="Center">
+            <Column id="idPerformanceColumn" hAlign="Center">
                 <Text id="idPerformanceText" text="Performance" />
             </Column>
         </columns>
         <items>
-            <ColumnListItem id="idDetailColumnListItem">
+            <ColumnListItem id="idColumnListItem">
                 <cells>
+                
+                <Text id="idAttendanceIdText" text="{employeeModel>attendanceId}" />
                 <Text id="idDateText" text="{employeeModel>date}" />
                     <Text id="idCheckedInText" text="{employeeModel>checkedIn}" />
                     <Text id="idCheckedOutText" text="{employeeModel>checkedOut}" />
-                <custom:EmployeePerformance id="idRatingEmployeePerformance" 
-                value="{employeeModel>rating}">
-                </custom:EmployeePerformance>    
+                <custom:EmployeePerformance
+                 id="idRatingEmployeePerformance" 
+                value="{employeeModel>rating}" />
                 </cells>
             </ColumnListItem>
         </items>
