@@ -41,19 +41,16 @@ export default class EmployeePerformance extends Control {
         rating.addStyleClass("sapUiTinyMarginTopBottom");
         this.setAggregation("_performance", rating);
     }
-
+    private _onRate(event: RatingIndicator$LiveChangeEvent): void {
+        const value = event.getParameter("value");
+        this.setProperty("value", value, true);
+    }
     setValue(value: number): EmployeePerformance {
         this.setProperty("value", value, true);
         (this.getAggregation("_performance") as RatingIndicator).setValue(value);
 
         return this;
     }
-
-    private _onRate(event: RatingIndicator$LiveChangeEvent): void {
-        const value = event.getParameter("value");
-        this.setProperty("value", value, true);
-    }
-
     static renderer = {
         apiVersion: 4,
         render: (rm: RenderManager, control: EmployeePerformance) => {
