@@ -13,7 +13,7 @@ import ListBinding from "sap/ui/model/ListBinding";
  * @namespace com.myorg.myapp.controller
  */
 export default class Main extends BaseController {
-	onStandardListItemPress(oEvent: ListItemBase$PressEvent) {
+	onObjectListItemPress(oEvent: ListItemBase$PressEvent) {
 		const pressedItem = oEvent.getSource();
 		const context = pressedItem.getBindingContext("employeeModel") as Context;
 		const desiredPath = (context).getPath() as string;

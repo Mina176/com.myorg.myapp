@@ -17,10 +17,10 @@
 		<content>
 				<List id="idEmployeesList" items="{employeeModel>/employees}" >
 			<items>
-			<StandardListItem id="idStandardListItem" title="{employeeModel>name}"
-                description="{employeeModel>position}"
+			<ObjectListItem id="idObjectListItem"  title="{employeeModel>name}" 
+                intro="{employeeModel>position}"
                 type="Navigation"
-				press="onStandardListItemPress"
+				press="onObjectListItemPress"
 				/>
 			</items>
 			</List>
