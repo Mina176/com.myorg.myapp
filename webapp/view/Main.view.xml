@@ -5,9 +5,16 @@
 	xmlns:mvc="sap.ui.core.mvc"	>
 	<Page
 		title="{i18n>appTitle}"
-		id="idMainPage">
-		<subHeader>
-            <Toolbar id="idSearchToolbar">
+		id="idMainPage" 
+		>
+		<headerContent>
+		<Button id="idAddEmployeeButton"
+                icon="sap-icon://add"
+                text="Add Employee"
+                press=".onAddEmployeeButtonPress" />
+		</headerContent>
+		<subHeader >
+            <Toolbar id="idSearchToolbar" >
                 <SearchField 
                     id="idEmployeeSearchField" 
                     placeholder="Search employee..." 
