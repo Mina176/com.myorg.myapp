@@ -6,6 +6,7 @@ import ResourceModel from "sap/ui/model/resource/ResourceModel";
 import ResourceBundle from "sap/base/i18n/ResourceBundle";
 import Router from "sap/ui/core/routing/Router";
 import History from "sap/ui/core/routing/History";
+import Dialog from "sap/m/Dialog";
 
 /**
  * @namespace com.myorg.myapp.controller
@@ -79,5 +80,16 @@ export default abstract class BaseController extends Controller {
 		} else {
 			this.getRouter().navTo("main", {}, undefined, true);
 		}
+	}
+	protected oDialog?: Dialog;
+	public async openDialog(sFragmentName: string): Promise<void> {
+		this.oDialog ??= (await this.loadFragment({
+			name: sFragmentName
+		})) as Dialog;
+
+		this.oDialog.open();
+	}
+	public onCloseDialog(): void {
+		this.oDialog?.close();
 	}
 }
