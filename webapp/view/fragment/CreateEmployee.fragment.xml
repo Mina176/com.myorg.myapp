@@ -1,0 +1,18 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+>    <Dialog id="idcreateEmployeeDialog" title="Create New Employee">
+        <content>
+            <Input id="idEmployeeIdInput"  placeholder="{i18n>IdText}" />
+            <Input id="idEmployeeNameInput"  placeholder="{i18n>NameText}"/>
+            <Input id="idEmployeePositionInput" placeholder="{i18n>PositionText}"/>
+            <Input id="idEmployeeDepartmentInput" placeholder="{i18n>DepartmentText}"/>
+        </content>
+        <beginButton>
+            <Button id="idCloseButton" text="Close" press=".onCloseButtonPress" />
+        </beginButton>
+        <endButton>
+            <Button id="idSaveButton" text="Save" press=".onSaveButtonPress" />
+        </endButton>
+    </Dialog>
+</c:FragmentDefinition>
