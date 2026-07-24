@@ -1,18 +1,16 @@
-import MessageBox from "sap/m/MessageBox";
-import BaseController from "./BaseController";
 import { ListItemBase$PressEvent } from "sap/m/ListItemBase";
 import UIComponent from "sap/ui/core/UIComponent";
 import Context from "sap/ui/model/Context";
-import Event from "sap/ui/base/Event";
 import { SearchField$LiveChangeEvent } from "sap/m/SearchField";
 import Filter from "sap/ui/model/Filter";
 import FilterOperator from "sap/ui/model/FilterOperator";
 import ListBinding from "sap/ui/model/ListBinding";
+import Controller from "sap/ui/core/mvc/Controller";
 
 /**
  * @namespace com.myorg.myapp.controller
  */
-export default class Main extends BaseController {
+export default class Main extends Controller {
 	onObjectListItemPress(oEvent: ListItemBase$PressEvent) {
 		const pressedItem = oEvent.getSource();
 		const context = pressedItem.getBindingContext("employeeModel") as Context;

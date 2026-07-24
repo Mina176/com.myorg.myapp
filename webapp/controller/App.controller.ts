@@ -1,4 +1,3 @@
-import JSONModel from "sap/ui/model/json/JSONModel";
 import BaseController from "./BaseController";
 
 /**
