@@ -6,11 +6,13 @@ import Filter from "sap/ui/model/Filter";
 import FilterOperator from "sap/ui/model/FilterOperator";
 import ListBinding from "sap/ui/model/ListBinding";
 import Controller from "sap/ui/core/mvc/Controller";
+import JSONModel from "sap/ui/model/json/JSONModel";
+import BaseController from "./BaseController";
 
 /**
  * @namespace com.myorg.myapp.controller
  */
-export default class Main extends Controller {
+export default class Main extends BaseController {
 	onObjectListItemPress(oEvent: ListItemBase$PressEvent) {
 		const pressedItem = oEvent.getSource();
 		const context = pressedItem.getBindingContext("employeeModel") as Context;
@@ -38,4 +40,34 @@ export default class Main extends Controller {
 		const binding = list?.getBinding("items") as ListBinding;
 		binding?.filter(filter);
 	}
+	async onAddEmployeeButtonPress() {
+		const oTransientModel = new JSONModel({
+			id: Date.now().toString(),
+			name: "",
+			position: "",
+			Department: "",
+		});
+		this.getView()?.setModel(oTransientModel, "newEmployee");
+
+		await this.openDialog("com.myorg.myapp.view.fragment.CreateEmployee");
+	}
+
+	public onSaveButtonPress(): void {
+		// get the model we want to create
+		const oTransientModel = this.getView()?.getModel("newEmployee") as JSONModel;
+		//  get the old  employees
+		const oMainModel = this.getView()?.getModel("employeeModel") as JSONModel;
+
+		const aOldEmployees = oMainModel.getProperty("/employees");
+
+		aOldEmployees.push(oTransientModel.getData());
+
+		oMainModel.refresh();
+
+		this.onCloseDialog();
+	}
+	onCloseButtonPress() {
+		this.onCloseDialog();
+	}
+
 }
