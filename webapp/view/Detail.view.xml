@@ -20,8 +20,8 @@
         autoPopinMode="true"
         fixedLayout="false"
         items="{employeeModel>attendance}" 
-        headerText="Attendance Records"
-        noDataText="No attendance records found"
+        headerText="{i18n>attendanceRecordText}"
+        noDataText="{i18n>noAttendanceRecordText}"
         class="sapUiSmallMarginBeginEnd"
         width="auto"
         >
@@ -31,25 +31,25 @@
              demandPopin="true" 
              minScreenWidth="Tablet" 
              importance="Medium">
-                <Text id="idAttendanceIDText" text="Attendance ID"  />
+                <Text id="idAttendanceIDText" text="{i18n>attendanceId}"  />
             </Column>
             <Column id="idDateColumn" hAlign="Center" importance="High">
-                <Text id="idDateHeaderText" text="Date" />
+                <Text id="idDateHeaderText" text="{i18n>DateText}" />
             </Column>
             <Column id="idCheckInColumn" hAlign="Center" importance="High">
-                <Text id="idCheckInText" text="Check In" />
+                <Text id="idCheckInText" text="{i18n>checkInText}" />
             </Column>
             <Column id="idCheckOutColumn" hAlign="Center" importance="High">
-                <Text id="idCheckOutText" text="Check Out" />
+                <Text id="idCheckOutText" text="{i18n>checkOutText}" />
             </Column>
             <Column id="idEmpIdColumn" hAlign="Center" 
              demandPopin="true" 
              minScreenWidth="Tablet" 
              importance="Low">
-                <Text id="idOvertimeText" text="Overtime" />
+                <Text id="idOvertimeText" text="{i18n>overTimeText}" />
             </Column>
             <Column id="idPerformanceColumn" hAlign="Center" importance="High">
-                <Text id="idPerformanceText" text="Performance" />
+                <Text id="idPerformanceText" text="{i18n>performanceText}" />
             </Column>
         </columns>
         <items>
