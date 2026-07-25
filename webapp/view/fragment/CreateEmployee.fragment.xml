@@ -1,18 +1,26 @@
-<c:FragmentDefinition
+<c:FragmentDefinition xmlns:form="sap.ui.layout.form"
 	xmlns="sap.m"
 	xmlns:c="sap.ui.core"
 >    <Dialog id="idcreateEmployeeDialog" title="Create New Employee">
         <content>
-            <Input id="idEmployeeIdInput"  placeholder="{i18n>IdText}" />
-            <Input id="idEmployeeNameInput"  placeholder="{i18n>NameText}"/>
-            <Input id="idEmployeePositionInput" placeholder="{i18n>PositionText}"/>
-            <Input id="idEmployeeDepartmentInput" placeholder="{i18n>DepartmentText}"/>
+        <form:SimpleForm id="idCreateEmployeeSimpleForm"  >
+        <form:content>
+            <Label id="idLabel" text="{i18n>IdText}" labelFor="idIdInput" />
+            <Input id="idIdInput" value="{newEmployee>/id}" required="true" />
+            <Label id="idNameLabel"  text="{i18n>NameText}" labelFor="idNameInput" />
+            <Input id="idNameInput" value="{newEmployee>/name}" required="true"/>
+            <Label id="idPositionLabel"  text="{i18n>PositionText}" labelFor="idPositionInput" />
+            <Input id="idPositionInput" value="{newEmployee>/position}" required="true"/>
+            <Label id="idDepartmentLabel"  text="{i18n>DepartmentText}" labelFor="idDepartmentInput" />
+            <Input id="idDepartmentInput" value="{newEmployee>/department}" required="true"/>
+        </form:content>
+        </form:SimpleForm>
         </content>
         <beginButton>
-            <Button id="idCloseButton" text="Close" press=".onCloseButtonPress" />
+            <Button id="idCloseButton" text="Close"  press=".onCloseButtonPress" />
         </beginButton>
         <endButton>
-            <Button id="idSaveButton" text="Save" press=".onSaveButtonPress" />
+            <Button id="idSaveButton" text="Save" type="Emphasized" press=".onSaveButtonPress" />
         </endButton>
     </Dialog>
 </c:FragmentDefinition>
