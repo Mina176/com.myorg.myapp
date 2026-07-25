@@ -65,10 +65,10 @@ export default class Main extends BaseController {
 
 		oMainModel.refresh();
 
-		this.onCloseDialog();
+		this.closeDialog();
 	}
 	onCloseButtonPress() {
-		this.onCloseDialog();
+		this.closeDialog();
 	}
 
 }

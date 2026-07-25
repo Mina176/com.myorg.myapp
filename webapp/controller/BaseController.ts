@@ -89,7 +89,7 @@ export default abstract class BaseController extends Controller {
 
 		this.oDialog.open();
 	}
-	public onCloseDialog(): void {
+	public closeDialog(): void {
 		this.oDialog?.close();
 	}
 }
