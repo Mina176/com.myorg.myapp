@@ -10,6 +10,13 @@
     showNavButton="true"
     navButtonPress="onPageNavButtonPress"
     >
+    <headerContent>
+		<Button id="idDeleteEmployeeButton"
+                icon="sap-icon://delete"
+                text="Delete Employee"
+                type="Reject"
+                press=".onDeleteEmployeeButtonPress" />
+		</headerContent>
     <ObjectHeader
       id="idPositionObjectHeader"
       intro="{employeeModel>department}"

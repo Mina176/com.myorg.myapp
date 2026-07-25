@@ -2,11 +2,14 @@ import Controller from "sap/ui/core/mvc/Controller";
 import UIComponent from "sap/ui/core/UIComponent";
 import Route, { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
 import History from "sap/ui/core/routing/History";
+import BaseController from "./BaseController";
+import JSONModel from "sap/ui/model/json/JSONModel";
+import MessageBox from "sap/m/MessageBox";
 
 /**
  * @namespace com.myorg.myapp.controller
  */
-export default class Detail extends Controller {
+export default class Detail extends BaseController {
 
     onInit(): void {
         const router = UIComponent.getRouterFor(this);
@@ -42,5 +45,31 @@ export default class Detail extends Controller {
             // set bReplace (replace history) true reset pages stack     
         }
     }
+    public onDeleteEmployeeButtonPress() {
+        const context = this.getView().getBindingContext("employeeModel");
 
+        const currentEmployee = context.getObject() as { id: number };
+
+        MessageBox.confirm('Are you sure you want to delete this Employee ?', {
+            title: "Confirm Deletion",
+            onClose: (action: string) => {
+                if (action === MessageBox.Action.OK) {
+                    this.deleteEmployeeById(currentEmployee.id);
+                }
+            }
+        })
+    }
+    private deleteEmployeeById(EmployeeId: number) {
+        const oMainModel = this.getView()?.getModel("employeeModel") as JSONModel;
+        const aEmployees = oMainModel.getProperty("/employees") as Array<{ id: number }>;
+        const nIndexToDelete = aEmployees.findIndex((emp) => emp.id === EmployeeId);
+        if (nIndexToDelete !== -1) {
+            
+            aEmployees.splice(nIndexToDelete, 1);
+            oMainModel.refresh();
+
+            const oRouter = UIComponent.getRouterFor(this);
+            oRouter.navTo("main", {}, true);
+        }
+    }
 };
