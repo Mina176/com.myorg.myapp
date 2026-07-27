@@ -42,7 +42,7 @@ export default class Main extends BaseController {
 	}
 	async onAddEmployeeButtonPress() {
 		const oTransientModel = new JSONModel({
-			id: Date.now(),
+			id: 6,
 			name: "",
 			position: "",
 			department: "",

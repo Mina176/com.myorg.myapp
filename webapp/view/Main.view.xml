@@ -26,6 +26,7 @@
 			<items>
 			<ObjectListItem id="idObjectListItem"  title="{employeeModel>name}" 
                 intro="{employeeModel>position}"
+				counter="{employeeModel>id}"
                 type="Navigation"
 				press="onObjectListItemPress"
 				/>
