@@ -10,26 +10,28 @@
 		<headerContent>
 		<Button id="idAddEmployeeButton"
                 icon="sap-icon://add"
-                text="Add Employee"
+                text="Add Employee" type="Emphasized"
                 press=".onAddEmployeeButtonPress" />
 		</headerContent>
-		<subHeader >
             <Toolbar id="idSearchToolbar" >
                 <SearchField 
                     id="idEmployeeSearchField" 
                     placeholder="Search employee..." 
                     liveChange=".onSearchFieldLiveChange" />
             </Toolbar>
-        </subHeader>
 		<content>
 				<List id="idEmployeesList" items="{employeeModel>/employees}" >
 			<items>
 			<ObjectListItem id="idObjectListItem"  title="{employeeModel>name}" 
                 intro="{employeeModel>position}"
-				counter="{employeeModel>id}"
                 type="Navigation"
-				press="onObjectListItemPress"
-				/>
+				press="onObjectListItemPress">
+				<attributes>
+                    <ObjectAttribute id="idIdObjectAttribute" 
+                        title="id" 
+                        text="{employeeModel>id}" />
+                </attributes>
+				</ObjectListItem>
 			</items>
 			</List>
 		</content>
