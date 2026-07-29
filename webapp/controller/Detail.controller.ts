@@ -64,9 +64,13 @@ export default class Detail extends BaseController {
         const aEmployees = oMainModel.getProperty("/employees") as Array<{ id: number }>;
         const nIndexToDelete = aEmployees.findIndex((emp) => emp.id === EmployeeId);
         if (nIndexToDelete !== -1) {
-            
+
             aEmployees.splice(nIndexToDelete, 1);
             oMainModel.refresh();
+
+            const oEventBus = (this.getOwnerComponent() as UIComponent).getEventBus();
+            // broadcast this to all controllers 
+            oEventBus.publish("EmployeeData", "Delete", { employeeName: "Mina" });
 
             const oRouter = UIComponent.getRouterFor(this);
             oRouter.navTo("main", {}, true);
