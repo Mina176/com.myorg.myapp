@@ -25,6 +25,7 @@
 			<ObjectListItem id="idObjectListItem"  title="{employeeModel>name}" 
                 intro="{employeeModel>position}"
                 type="Navigation"
+				tooltip="id: {employeeModel>id}"
 				press="onObjectListItemPress">
 				<attributes>
                     <ObjectAttribute id="idIdObjectAttribute" 
