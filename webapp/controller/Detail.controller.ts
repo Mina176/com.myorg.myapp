@@ -33,8 +33,8 @@ export default class Detail extends BaseController {
         const history = History.getInstance();
         const previousHash = history.getPreviousHash();
 
-        // "!=" treats [0,"",false] are equal
-        // "!==" treats [0,"",false] are not equal
+        // "!=" treats [0,"",false] are equal, because one equal sign does not check data types
+        // "!==" treats [0,"",false] are not equal, becuase data types are different
         if (previousHash !== undefined) {
             // user came from the app normally 
             window.history.go(-1);
