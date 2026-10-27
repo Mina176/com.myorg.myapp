@@ -20,6 +20,11 @@ export default tseslint.config(
 		}
 	},
 	{
+		rules: {
+			"@typescript-eslint/semi": ["error", "always"],
+		}
+	},
+	{
 		ignores: ["eslint.config.mjs", "webapp/test/e2e/**"]
 	}
 );
