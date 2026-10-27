@@ -22,6 +22,20 @@ npm install
 
 (To use yarn, just do `yarn` instead.)
 
+### SAP Basic Authentication
+
+The local UI5 proxy forwards `/sap` requests to the SAP OData service and adds the
+Basic Authentication header on the server side. Copy `.env.example` to `.env` and
+replace the placeholder with your SAP credentials:
+
+```text
+PROXY_AUTH=your-username:your-password
+```
+
+`.env` is ignored by Git. Do not put credentials in `ui5.yaml` or frontend code.
+The browser does not prompt for credentials because it communicates with the local
+proxy; the proxy authenticates with SAP.
+
 ## Run the App
 
 Execute the following command to run the app locally for development in watch mode (the browser reloads the app automatically when there are changes in the source code):
