@@ -7,12 +7,6 @@
 		title="{i18n>appTitle}"
 		id="idMainPage" 
 		>
-		<headerContent>
-		<Button id="idAddEmployeeButton"
-                icon="sap-icon://add"
-                text="Add Employee" type="Emphasized"
-                press=".onAddEmployeeButtonPress" />
-		</headerContent>
             <Toolbar id="idSearchToolbar" >
                 <SearchField 
                     id="idEmployeeSearchField" 
@@ -20,17 +14,17 @@
                     liveChange=".onSearchFieldLiveChange" />
             </Toolbar>
 		<content>
-				<List id="idEmployeesList" items="{ZEMPDATASet}" >
+				<List id="idEmployeesList" items="{/ZEMPDATASet}" >
 			<items>
-			<ObjectListItem id="idObjectListItem"  title="{employeeModel>name}" 
-                intro="{employeeModel>position}"
+			<ObjectListItem id="idObjectListItem"  title="{name}"
+                intro="{position}"
                 type="Navigation"
-				tooltip="id: {employeeModel>id}"
+				tooltip="id: {id}"
 				press="onObjectListItemPress">
 				<attributes>
                     <ObjectAttribute id="idIdObjectAttribute" 
                         title="id" 
-                        text="{employeeModel>id}" />
+                        text="{id}" />
                 </attributes>
 				</ObjectListItem>
 			</items>

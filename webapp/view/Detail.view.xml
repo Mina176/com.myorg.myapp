@@ -19,14 +19,14 @@
 		</headerContent>
     <ObjectHeader
       id="idPositionObjectHeader"
-      intro="{employeeModel>department}"
-      title="{employeeModel>name}"
-      number="{employeeModel>position}"/>
+      intro="{department}"
+      title="{name}"
+      number="{position}"/>
 
     <Table id="idAttendanceTable"
         autoPopinMode="true"
         fixedLayout="false"
-        items="{employeeModel>attendance}" 
+        items="{attendance}"
         headerText="{i18n>attendanceRecordText}"
         noDataText="{i18n>noAttendanceRecordText}"
         class="sapUiSmallMarginBeginEnd"
@@ -62,14 +62,14 @@
         <items>
             <ColumnListItem id="idColumnListItem">
                 <cells>
-                <Text id="idAttendanceIdText" text="{employeeModel>attendanceId}" />
-                <Text id="idDateText" text="{employeeModel>date}" />
-                    <Text id="idCheckedInText" text="{employeeModel>checkedIn}" />
-                    <Text id="idCheckedOutText" text="{employeeModel>checkedOut}" />
-                <Text id="idOvertimeDataText" text="{employeeModel>overtime}" />
+                <Text id="idAttendanceIdText" text="{attendanceId}" />
+                <Text id="idDateText" text="{date}" />
+                    <Text id="idCheckedInText" text="{checkedIn}" />
+                    <Text id="idCheckedOutText" text="{checkedOut}" />
+                <Text id="idOvertimeDataText" text="{overtime}" />
                 <custom:EmployeePerformance
                  id="idRatingEmployeePerformance" 
-                value="{employeeModel>rating}" />
+                value="{rating}" />
                 </cells>
             </ColumnListItem>
         </items>

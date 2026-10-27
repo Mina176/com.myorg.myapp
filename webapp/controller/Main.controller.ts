@@ -5,9 +5,8 @@ import { SearchField$LiveChangeEvent } from "sap/m/SearchField";
 import Filter from "sap/ui/model/Filter";
 import FilterOperator from "sap/ui/model/FilterOperator";
 import ListBinding from "sap/ui/model/ListBinding";
-import Controller from "sap/ui/core/mvc/Controller";
-import JSONModel from "sap/ui/model/json/JSONModel";
 import BaseController from "./BaseController";
+import JSONModel from "sap/ui/model/json/JSONModel";
 
 /**
  * @namespace com.myorg.myapp.controller
@@ -15,13 +14,13 @@ import BaseController from "./BaseController";
 export default class Main extends BaseController {
 	onObjectListItemPress(oEvent: ListItemBase$PressEvent) {
 		const pressedItem = oEvent.getSource();
-		const context = pressedItem.getBindingContext("employeeModel") as Context;
+		const context = pressedItem.getBindingContext() as Context;
 		const desiredPath = (context).getPath() as string;
-		// /employees/0
+		// /ZEMPDATASet(...)
 		const cleanPath = (desiredPath).substring(1);
-		// employees/0
+		// ZEMPDATASet(...)
 		const encodedPath = window.encodeURIComponent(cleanPath)
-		// employees%2F0
+		// ZEMPDATASet(...)
 		const router = UIComponent.getRouterFor(this);
 		router.navTo("detail", {
 			empId: encodedPath
