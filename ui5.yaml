@@ -3,7 +3,7 @@ metadata:
   name: com.myorg.myapp
 type: application
 framework:
-  name: OpenUI5
+  name: SAPUI5
   version: "1.150.0"
   libraries:
     - name: sap.m
@@ -22,14 +22,12 @@ server:
       afterMiddleware: compression
     - name: ui5-middleware-livereload
       afterMiddleware: compression
-    - name: fiori-tools-proxy
+    - name: ui5-middleware-proxy
       afterMiddleware: compression
+      mountPath: /sap
       configuration:
-        backend:
-          - path: /sap
-            url: https://vhwhfwadci.sap.wadidegla.com:44300
-            client: "100"
-        authentication:
-          type: BasicAuthentication
-          username: MSAMI
-          password: PrdQasDev@176
+        debug: true
+        target: https://vhwhfwadci.sap.wadidegla.com:44300
+        secure: false
+        changeOrigin: true
+        client: "100"
