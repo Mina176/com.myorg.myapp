@@ -15,7 +15,7 @@
 		},
 		"dataSources": {
 			"default": {
-				"uri": "https://services.odata.org/TripPinRESTierService/(S(id))/",
+				"uri": "/sap/opu/odata/sap/ZMS_ODATA_TEST_SRV/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0"
@@ -64,9 +64,12 @@
 					"async": true
 				}
 			},
-			"employeeModel": {
-				"type": "sap.ui.model.json.JSONModel",
-				"uri": "model/employees.json"
+			"": {
+				"dataSource": "default",
+				"preload": true,
+				"settings": {
+					"useBatch": false
+				}
 			}
 		},
 		"routing": {
