@@ -20,7 +20,7 @@
                     liveChange=".onSearchFieldLiveChange" />
             </Toolbar>
 		<content>
-				<List id="idEmployeesList" items="{employeeModel>/employees}" >
+				<List id="idEmployeesList" items="{ZEMPDATASet}" >
 			<items>
 			<ObjectListItem id="idObjectListItem"  title="{employeeModel>name}" 
                 intro="{employeeModel>position}"

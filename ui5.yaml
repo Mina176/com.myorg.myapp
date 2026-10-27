@@ -22,3 +22,14 @@ server:
       afterMiddleware: compression
     - name: ui5-middleware-livereload
       afterMiddleware: compression
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        backend:
+          - path: /sap
+            url: https://vhwhfwadci.sap.wadidegla.com:44300
+            client: "100"
+        authentication:
+          type: BasicAuthentication
+          username: MSAMI
+          password: PrdQasDev@176

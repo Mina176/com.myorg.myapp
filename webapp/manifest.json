@@ -12,6 +12,15 @@
 		"sourceTemplate": {
 			"id": "generator-ui5-ts-app",
 			"version": "1.1.0"
+		},
+		"dataSources": {
+			"default": {
+				"uri": "https://services.odata.org/TripPinRESTierService/(S(id))/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
 		}
 	},
 	"sap.ui": {
