@@ -5,8 +5,7 @@
 	xmlns:mvc="sap.ui.core.mvc"	>
 	<Page
 		title="{i18n>appTitle}"
-		id="idMainPage" 
-		>
+		id="idMainPage">
             <Toolbar id="idSearchToolbar" >
                 <SearchField 
                     id="idEmployeeSearchField" 
@@ -16,16 +15,13 @@
 		<content>
 				<List id="idEmployeesList" items="{/ZEMPDATASet}" >
 			<items>
-			<ObjectListItem id="idObjectListItem"  title="{name}"
-                intro="{position}"
+			<ObjectListItem 
+				id="idObjectListItem"
+				title="{ZempName}"
+                intro="{Zposition}"
+				tooltip="id: {ZempId}"
                 type="Navigation"
-				tooltip="id: {id}"
 				press="onObjectListItemPress">
-				<attributes>
-                    <ObjectAttribute id="idIdObjectAttribute" 
-                        title="id" 
-                        text="{id}" />
-                </attributes>
 				</ObjectListItem>
 			</items>
 			</List>
