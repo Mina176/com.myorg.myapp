@@ -19,13 +19,12 @@ export default class Detail extends BaseController {
     // this method executes everytime user lands on this page 
     onObjectMatched(event: Route$PatternMatchedEvent): void {
         const encodedPath = (event.getParameter("arguments") as any).empId
-        // employees%2F0
         const decodedPath = window.decodeURIComponent(encodedPath);
-        // employees/0
+        // ZEMPDATASet('00001000')
         this.getView()?.bindElement({
             path: "/" + decodedPath,
             // /employees/0
-            model: "employeeModel"
+            // model: "employeeModel"
         });
     }
 
