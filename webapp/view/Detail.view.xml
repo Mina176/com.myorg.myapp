@@ -26,7 +26,7 @@
     <Table id="idAttendanceTable"
         autoPopinMode="true"
         fixedLayout="false"
-        items="{attendance}"
+        items="{EMP_TO_ATT}"
         headerText="{i18n>attendanceRecordText}"
         noDataText="{i18n>noAttendanceRecordText}"
         class="sapUiSmallMarginBeginEnd"
@@ -38,7 +38,7 @@
              demandPopin="true" 
              minScreenWidth="Tablet" 
              importance="Medium">
-                <Text id="idAttendanceIDText" text="{i18n>attendanceId}"  />
+                <Text id="idEmployeeIdTitle" text="{i18n>attendanceId}"  />
             </Column>
             <Column id="idDateColumn" hAlign="Center" importance="High">
                 <Text id="idDateHeaderText" text="{i18n>DateText}" />
@@ -62,10 +62,10 @@
         <items>
             <ColumnListItem id="idColumnListItem">
                 <cells>
-                <Text id="idAttendanceIdText" text="{attendanceId}" />
-                <Text id="idDateText" text="{date}" />
-                    <Text id="idCheckedInText" text="{checkedIn}" />
-                    <Text id="idCheckedOutText" text="{checkedOut}" />
+                <Text id="idEmployeeIdText" text="{ZempId}" />
+                <Text id="idDateText" text="{Zdate}" />
+                    <Text id="idCheckedInText" text="{ZchkIn}" />
+                    <Text id="idCheckedOutText" text="{ZchkOut}" />
                 <Text id="idOvertimeDataText" text="{overtime}" />
                 <custom:EmployeePerformance
                  id="idRatingEmployeePerformance" 
