@@ -38,7 +38,7 @@
              demandPopin="true" 
              minScreenWidth="Tablet" 
              importance="Medium">
-                <Text id="idEmployeeIdTitle" text="{i18n>attendanceId}"  />
+                <Text id="idEmployeeIdTitle" text="{i18n>IdText}"  />
             </Column>
             <Column id="idDateColumn" hAlign="Center" importance="High">
                 <Text id="idDateHeaderText" text="{i18n>DateText}" />
@@ -62,7 +62,7 @@
         <items>
             <ColumnListItem id="idColumnListItem">
                 <cells>
-                <Text id="idEmployeeIdText" text="{ZempId}" />
+                <Text id="idEmployeeIdText" text="{= parseFloat(${ZempId}) }"  />
                 <Text id="idDateText" text="{Zdate}" />
                     <Text id="idCheckedInText" text="{ZchkIn}" />
                     <Text id="idCheckedOutText" text="{ZchkOut}" />
