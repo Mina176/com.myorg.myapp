@@ -63,8 +63,15 @@
             <ColumnListItem id="idColumnListItem">
                 <cells>
                 <Text id="idEmployeeIdText" text="{= parseFloat(${ZempId}) }"  />
-                <Text id="idDateText" text="{Zdate}" />
-                    <Text id="idCheckedInText" text="{ZchkIn}" />
+                <Text id="idDateText"
+                 text="{
+                 path:'Zdate' ,
+                 type: 'sap.ui.model.type.DateTime',
+                 formatOptions: {
+                    pattern: 'dd.MM.yyyy',
+                    strictParsing: true } }" />
+                    <Text id="idCheckedInText" 
+                    text="{ZchkIn}" />
                     <Text id="idCheckedOutText" text="{ZchkOut}" />
                 <Text id="idOvertimeDataText" text="{overtime}" />
                 <custom:EmployeePerformance
