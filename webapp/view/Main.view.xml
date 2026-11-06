@@ -1,4 +1,4 @@
-<mvc:View
+<mvc:View xmlns:core="sap.ui.core"
 	controllerName="com.myorg.myapp.controller.Main"
 	displayBlock="true"
 	xmlns="sap.m"
@@ -6,6 +6,13 @@
 	<Page
 		title="{i18n>appTitle}"
 		id="idMainPage">
+		    <headerContent>
+		<Button id="idAddEmployeeButton"
+                icon="sap-icon://add"
+                text="Add Employee"
+                type="Emphasized"
+                press=".onAddEmployeeButtonPress" />
+		</headerContent>
             <Toolbar id="idSearchToolbar" >
                 <SearchField 
                     id="idEmployeeSearchField" 

@@ -6,13 +6,13 @@
         <form:SimpleForm id="idCreateEmployeeSimpleForm"  >
         <form:content>
             <Label id="idLabel" text="{i18n>IdText}" labelFor="idIdInput" />
-            <Input id="idIdInput" value="{newEmployee>/id}" required="true" />
+            <Input id="idIdInput" value="{newEmployee>/ZempId}" required="true" />
             <Label id="idNameLabel"  text="{i18n>NameText}" labelFor="idNameInput" />
-            <Input id="idNameInput" value="{newEmployee>/name}" required="true"/>
+            <Input id="idNameInput" value="{newEmployee>/ZempName}" required="true"/>
             <Label id="idPositionLabel"  text="{i18n>PositionText}" labelFor="idPositionInput" />
-            <Input id="idPositionInput" value="{newEmployee>/position}" required="true"/>
+            <Input id="idPositionInput" value="{newEmployee>/Zposition}" required="true"/>
             <Label id="idDepartmentLabel"  text="{i18n>DepartmentText}" labelFor="idDepartmentInput" />
-            <Input id="idDepartmentInput" value="{newEmployee>/department}" required="true"/>
+            <Input id="idDepartmentInput" value="{newEmployee>/Zdepartment}" required="true"/>
         </form:content>
         </form:SimpleForm>
         </content>
