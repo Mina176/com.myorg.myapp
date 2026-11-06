@@ -31,3 +31,15 @@ server:
         secure: false
         changeOrigin: true
         client: "100"
+        strictSSL: false
+    - name: cookie-fix
+      beforeMiddleware: ui5-middleware-proxy
+      mountPath: /
+---
+specVersion: "4.0"
+kind: extension
+type: server-middleware
+metadata:
+  name: cookie-fix
+middleware:
+  path: cookieFix.js

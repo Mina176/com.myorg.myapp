@@ -68,7 +68,10 @@
 				"dataSource": "default",
 				"preload": true,
 				"settings": {
-					"useBatch": false
+					"defaultBindingMode": "TwoWay",
+					"refreshAfterChange": true,
+					"useBatch": false,
+					"tokenHandling": true
 				}
 			}
 		},

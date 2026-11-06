@@ -24,6 +24,8 @@
 	},
 	"devDependencies": {
 		"@openui5/types": "^1.150.0",
+		"@sap-ux/project-access": "^2.3.3",
+		"@sap-ux/ui5-proxy-middleware": "^2.0.15",
 		"@ui5/cli": "^4.0.57",
 		"@ui5/linter": "^1.23.1",
 		"@ui5/ts-interface-generator": "^0.11.1",

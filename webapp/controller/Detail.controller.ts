@@ -5,6 +5,8 @@ import History from "sap/ui/core/routing/History";
 import BaseController from "./BaseController";
 import JSONModel from "sap/ui/model/json/JSONModel";
 import MessageBox from "sap/m/MessageBox";
+import ODataModel from "sap/ui/model/odata/v2/ODataModel";
+import MessageToast from "sap/m/MessageToast";
 
 /**
  * @namespace com.myorg.myapp.controller
@@ -45,34 +47,31 @@ export default class Detail extends BaseController {
         }
     }
     public onDeleteEmployeeButtonPress() {
-        const context = this.getView().getBindingContext("employeeModel");
-
-        const currentEmployee = context.getObject() as { id: number };
+        const context = this.getView().getBindingContext();
+        const sPath = context.getPath();
+        // "/ZEMPDATASet('00001000')"
 
         MessageBox.confirm('Are you sure you want to delete this Employee ?', {
             title: "Confirm Deletion",
             onClose: (action: string) => {
-                if (action === MessageBox.Action.OK) {
-                    this.deleteEmployeeById(currentEmployee.id);
-                }
+                if (action === MessageBox.Action.OK)
+                    this.deleteEmployeeByPath(sPath);
             }
         })
     }
-    private deleteEmployeeById(EmployeeId: number) {
-        const oMainModel = this.getView()?.getModel("employeeModel") as JSONModel;
-        const aEmployees = oMainModel.getProperty("/employees") as Array<{ id: number }>;
-        const nIndexToDelete = aEmployees.findIndex((emp) => emp.id === EmployeeId);
-        if (nIndexToDelete !== -1) {
-
-            aEmployees.splice(nIndexToDelete, 1);
-            oMainModel.refresh();
-
-            const oEventBus = (this.getOwnerComponent() as UIComponent).getEventBus();
-            // broadcast this to all controllers 
-            oEventBus.publish("EmployeeData", "Delete", { employeeName: "Mina" });
-
-            const oRouter = UIComponent.getRouterFor(this);
-            oRouter.navTo("main", {}, true);
-        }
+    private deleteEmployeeByPath(sPath: string) {
+        const oMainModel = this.getView()?.getModel() as ODataModel;
+        if (!oMainModel) return;
+        this.getView()?.setBusy(true);
+        oMainModel.remove(sPath, {
+            success: () => {
+                this.getView()?.setBusy(false);
+                UIComponent.getRouterFor(this).navTo("main", {}, true);
+            },
+            error: (oError: any) => {
+                this.getView()?.setBusy(false);
+                MessageBox.error(`Failed to delete employee: ${oError.message}`);
+            }
+        });
     }
 };
