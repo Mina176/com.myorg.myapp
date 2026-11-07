@@ -46,31 +46,28 @@ export default class Main extends BaseController {
 		if (this.bEdit) {
 			this.openForm(context);
 		} else {
+			// before substring '/ZEMPDATASet('00001000')' : after substring  ZEMPDATASet('00001000')
+			// and encodeURIComponent replace / with %27
 			const sKey = window.encodeURIComponent(context.getPath().substring(1));
-			// ZEMPDATASet(...)
 			UIComponent.getRouterFor(this).navTo("detail", {
 				empId: sKey
 			});
 		}
 	}
 
-	private async openForm(context?: Context) {
-		this.sPath = context ? context.getPath() : "";
-
-		const oData = context ? { ...context.getObject() } : { ZempId: "", ZempName: "", Zposition: "", Zdepartment: "" };
-		this.getView()?.setModel(new JSONModel(oData), "newEmployee");
-		await this.openDialog("com.myorg.myapp.view.fragment.CreateEmployee");
-	}
-
 	async onAddEmployeeButtonPress() {
 		this.openForm();
 	}
 
-	async onEditPress() {
-		const oTransientModel = this.getView()?.getModel("newEmployee") as JSONModel;
+	private async openForm(context?: Context) {
+		this.sPath = context ? context.getPath() : "";
 
+		const oData = context ? { ...context.getObject() } : { ZempId: "", ZempName: "", Zposition: "", Zdepartment: "" };
+
+		this.getView()?.setModel(new JSONModel(oData), "newEmployee");
 		await this.openDialog("com.myorg.myapp.view.fragment.CreateEmployee");
 	}
+
 
 	public onSaveButtonPress(): void {
 		const oMainModel = this.getView()?.getModel() as ODataModel;
@@ -84,15 +81,14 @@ export default class Main extends BaseController {
 				alert(oError);
 			}
 		};
-
 		if (this.sPath) {
 			// we have path, so we are updating
 			oMainModel.update(this.sPath, oData, mCallbacks);
 		} else {
 			oMainModel.create("/ZEMPDATASet", oData, mCallbacks);
 		}
-
 	}
+
 	onCloseButtonPress() {
 		this.closeDialog();
 	}

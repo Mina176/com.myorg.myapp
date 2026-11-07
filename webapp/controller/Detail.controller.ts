@@ -46,11 +46,11 @@ export default class Detail extends BaseController {
             // set bReplace (replace history) true reset pages stack     
         }
     }
+
     public onDeleteEmployeeButtonPress() {
         const context = this.getView().getBindingContext();
         const sPath = context.getPath();
         // "/ZEMPDATASet('00001000')"
-
         MessageBox.confirm('Are you sure you want to delete this Employee ?', {
             title: "Confirm Deletion",
             onClose: (action: string) => {
@@ -59,19 +59,15 @@ export default class Detail extends BaseController {
             }
         })
     }
+
     private deleteEmployeeByPath(sPath: string) {
         const oMainModel = this.getView()?.getModel() as ODataModel;
         if (!oMainModel) return;
-        this.getView()?.setBusy(true);
         oMainModel.remove(sPath, {
-            success: () => {
-                this.getView()?.setBusy(false);
-                UIComponent.getRouterFor(this).navTo("main", {}, true);
-            },
-            error: (oError: any) => {
-                this.getView()?.setBusy(false);
-                MessageBox.error(`Failed to delete employee: ${oError.message}`);
-            }
+            success: () => UIComponent.getRouterFor(this).navTo("main", {}, true)
+            ,
+            error: (oError: any) => MessageBox.error(`Failed to delete employee: ${oError.message}`)
+
         });
     }
 };
