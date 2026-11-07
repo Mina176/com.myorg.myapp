@@ -1,4 +1,4 @@
-import { ListItemBase$PressEvent } from "sap/m/ListItemBase";
+import ListItemBase, { ListItemBase$PressEvent } from "sap/m/ListItemBase";
 import UIComponent from "sap/ui/core/UIComponent";
 import Context from "sap/ui/model/Context";
 import { SearchField$LiveChangeEvent } from "sap/m/SearchField";
@@ -10,30 +10,21 @@ import JSONModel from "sap/ui/model/json/JSONModel";
 import ODataModel from "sap/ui/model/odata/v2/ODataModel";
 import MessageToast from "sap/m/MessageToast";
 import MessageBox from "sap/m/MessageBox";
+import Event from "sap/ui/base/Event";
+import ToggleButton from "sap/m/ToggleButton";
 
 /**
  * @namespace com.myorg.myapp.controller
  */
 export default class Main extends BaseController {
-	onObjectListItemPress(oEvent: ListItemBase$PressEvent) {
-		const pressedItem = oEvent.getSource();
-		const context = pressedItem.getBindingContext() as Context;
-		const desiredPath = (context).getPath() as string;
-		// /ZEMPDATASet(...)
-		const cleanPath = (desiredPath).substring(1);
-		// ZEMPDATASet(...)
-		const encodedPath = window.encodeURIComponent(cleanPath)
-		// ZEMPDATASet(...)
-		const router = UIComponent.getRouterFor(this);
-		router.navTo("detail", {
-			empId: encodedPath
-		});
-	}
+	private bEdit: boolean = false;
+	private sPath: string = "";
+
 	onSearchFieldLiveChange(oEvent: SearchField$LiveChangeEvent) {
 		const filter = [];
 		const query = oEvent.getParameter("newValue");
 		if (query) {
-			filter.push(new Filter("name", FilterOperator.Contains, query));
+			filter.push(new Filter("ZempName", FilterOperator.Contains, query));
 		}
 		// get the list we want to filter
 		const list = this.byId("idEmployeesList");
@@ -42,56 +33,65 @@ export default class Main extends BaseController {
 		const binding = list?.getBinding("items") as ListBinding;
 		binding?.filter(filter);
 	}
-	async onAddEmployeeButtonPress() {
-		const oTransientModel = new JSONModel({
-			ZempId: "",
-			ZempName: "",
-			Zposition: "",
-			Zdepartment: "",
-		});
-		this.getView()?.setModel(oTransientModel, "newEmployee");
+
+	onEditModeToggle(oEvent: Event) {
+		const oSource = oEvent.getSource() as ToggleButton;
+		this.bEdit = oSource.getPressed();
+	}
+
+	onItemPress(oEvent: ListItemBase$PressEvent) {
+		const pressedItem = oEvent.getSource() as ListItemBase;
+		const context = pressedItem.getBindingContext() as Context;
+
+		if (this.bEdit) {
+			this.openForm(context);
+		} else {
+			const sKey = window.encodeURIComponent(context.getPath().substring(1));
+			// ZEMPDATASet(...)
+			UIComponent.getRouterFor(this).navTo("detail", {
+				empId: sKey
+			});
+		}
+	}
+
+	private async openForm(context?: Context) {
+		this.sPath = context ? context.getPath() : "";
+
+		const oData = context ? { ...context.getObject() } : { ZempId: "", ZempName: "", Zposition: "", Zdepartment: "" };
+		this.getView()?.setModel(new JSONModel(oData), "newEmployee");
 		await this.openDialog("com.myorg.myapp.view.fragment.CreateEmployee");
 	}
 
-	// async onAddEmployeeButtonPress() {
-	// 	const oTransientModel = new JSONModel({
-	// 		id: 6,
-	// 		name: "",
-	// 		position: "",
-	// 		department: "",
-	// 		attendance: [],
-	// 	});
-	// 	this.getView()?.setModel(oTransientModel, "newEmployee");
+	async onAddEmployeeButtonPress() {
+		this.openForm();
+	}
 
-	// 	await this.openDialog("com.myorg.myapp.view.fragment.CreateEmployee");
-	// }
+	async onEditPress() {
+		const oTransientModel = this.getView()?.getModel("newEmployee") as JSONModel;
 
+		await this.openDialog("com.myorg.myapp.view.fragment.CreateEmployee");
+	}
 
 	public onSaveButtonPress(): void {
 		const oMainModel = this.getView()?.getModel() as ODataModel;
-		if (!oMainModel) return;
+		const oData = (this.getView()?.getModel("newEmployee") as JSONModel).getData();
 
-		const oTransientModel = this.getView()?.getModel("newEmployee") as JSONModel;
-		const oPayload = oTransientModel ? oTransientModel.getData() : {};
-
-		this.getView()?.setBusy(true);
-		oMainModel.create("/ZEMPDATASet", oPayload, {
+		const mCallbacks = {
 			success: () => {
-				this.getView()?.setBusy(false);
-				MessageToast.show("Employee created successfully!");
 				oMainModel.refresh(true);
 				this.closeDialog();
-			}, error: (oError: any) => {
-				this.getView()?.setBusy(false);
-				let sMsg = "Failed to create employee";
-				try {
-					const oErrObj = JSON.parse(oError.responseText);
-					sMsg = oErrObj.error?.message?.value || sMsg;
-				} catch (e) { }
-				MessageBox.error(sMsg);
-				this.closeDialog();
+			}, error: (oError: ErrorCallback) => {
+				alert(oError);
 			}
-		})
+		};
+
+		if (this.sPath) {
+			// we have path, so we are updating
+			oMainModel.update(this.sPath, oData, mCallbacks);
+		} else {
+			oMainModel.create("/ZEMPDATASet", oData, mCallbacks);
+		}
+
 	}
 	onCloseButtonPress() {
 		this.closeDialog();

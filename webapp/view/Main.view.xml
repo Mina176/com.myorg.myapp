@@ -1,38 +1,45 @@
 <mvc:View xmlns:core="sap.ui.core"
-	controllerName="com.myorg.myapp.controller.Main"
-	displayBlock="true"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"	>
-	<Page
-		title="{i18n>appTitle}"
-		id="idMainPage">
-		    <headerContent>
-		<Button id="idAddEmployeeButton"
+    controllerName="com.myorg.myapp.controller.Main"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Page
+        title="{i18n>appTitle}"
+        id="idMainPage">
+        <headerContent>
+            <ToggleButton id="idEditModeButton"
+                icon="sap-icon://edit"
+                text="Edit"
+                tooltip="Tap an employee to edit it"
+                press=".onEditModeToggle" />
+            <Button id="idAddEmployeeButton"
                 icon="sap-icon://add"
                 text="Add Employee"
                 type="Emphasized"
                 press=".onAddEmployeeButtonPress" />
-		</headerContent>
-            <Toolbar id="idSearchToolbar" >
-                <SearchField 
-                    id="idEmployeeSearchField" 
-                    placeholder="Search employee..." 
+        </headerContent>
+        <subHeader>
+            <Toolbar id="idSearchToolbar">
+                <SearchField id="idEmployeeSearchField"
+                    placeholder="Search employee..."
                     liveChange=".onSearchFieldLiveChange" />
             </Toolbar>
-		<content>
-				<List id="idEmployeesList" items="{/ZEMPDATASet}" >
-			<items>
-			<ObjectListItem 
-				id="idObjectListItem"
-				title="{ZempName}"
-                intro="{Zposition}"
-				tooltip="id: {ZempId}"
-                type="Navigation"
-				press="onObjectListItemPress">
-				</ObjectListItem>
-			</items>
-			</List>
-		</content>
-	</Page>
+        </subHeader>
+        <content>
+            <List id="idEmployeesList" items="{/ZEMPDATASet}">
+                <items>
+                    <ObjectListItem id="idEmployeeItem"
+                        title="{ZempName}"
+                        type="Navigation"
+                        press=".onItemPress">
+                        <attributes>
+                            <ObjectAttribute id="idPositionAttr" text="{Zposition}" />
+                            <ObjectAttribute id="idDepartmentAttr" text="{Zdepartment}" />
+                        </attributes>
+                    </ObjectListItem>
+                </items>
+            </List>
+        </content>
+    </Page>
 
 </mvc:View>
