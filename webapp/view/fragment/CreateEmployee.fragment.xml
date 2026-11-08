@@ -1,23 +1,26 @@
 <c:FragmentDefinition xmlns:form="sap.ui.layout.form"
-	xmlns="sap.m"
-	xmlns:c="sap.ui.core"
->    <Dialog id="idcreateEmployeeDialog" title="Create New Employee">
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+>
+    <Dialog id="idcreateEmployeeDialog" title="Create New Employee">
         <content>
-        <form:SimpleForm id="idCreateEmployeeSimpleForm"  >
-        <form:content>
-            <Label id="idLabel" text="{i18n>IdText}" labelFor="idIdInput" />
-            <Input id="idIdInput" value="{newEmployee>/ZempId}" required="true" />
-            <Label id="idNameLabel"  text="{i18n>NameText}" labelFor="idNameInput" />
-            <Input id="idNameInput" value="{newEmployee>/ZempName}" required="true"/>
-            <Label id="idPositionLabel"  text="{i18n>PositionText}" labelFor="idPositionInput" />
-            <Input id="idPositionInput" value="{newEmployee>/Zposition}" required="true"/>
-            <Label id="idDepartmentLabel"  text="{i18n>DepartmentText}" labelFor="idDepartmentInput" />
-            <Input id="idDepartmentInput" value="{newEmployee>/Zdepartment}" required="true"/>
-        </form:content>
-        </form:SimpleForm>
+            <form:SimpleForm id="idCreateEmployeeSimpleForm">
+                <form:content>
+                    <Label id="idLabel" text="{i18n>IdText}" labelFor="idIdInput" />
+                    <Input id="idIdInput" value="{newEmployee>/ZempId}" editable="false" />
+                    <Label id="idNameLabel" text="{i18n>NameText}" labelFor="idNameInput" />
+                    <Input id="idNameInput" value="{newEmployee>/ZempName}" required="true" />
+                    <Label id="idPositionLabel" text="{i18n>PositionText}"
+                        labelFor="idPositionInput" />
+                    <Input id="idPositionInput" value="{newEmployee>/Zposition}" required="true" />
+                    <Label id="idDepartmentLabel" text="{i18n>DepartmentText}"
+                        labelFor="idDepartmentInput" />
+                    <Input id="idDepartmentInput" value="{newEmployee>/Zdepartment}" required="true" />
+                </form:content>
+            </form:SimpleForm>
         </content>
         <beginButton>
-            <Button id="idCloseButton" text="Close"  press=".onCloseButtonPress" />
+            <Button id="idCloseButton" text="Close" press=".onCloseButtonPress" />
         </beginButton>
         <endButton>
             <Button id="idSaveButton" text="Save" type="Emphasized" press=".onSaveButtonPress" />
