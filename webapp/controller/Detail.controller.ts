@@ -1,12 +1,11 @@
-import Controller from "sap/ui/core/mvc/Controller";
 import UIComponent from "sap/ui/core/UIComponent";
 import Route, { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
 import History from "sap/ui/core/routing/History";
 import BaseController from "./BaseController";
-import JSONModel from "sap/ui/model/json/JSONModel";
 import MessageBox from "sap/m/MessageBox";
 import ODataModel from "sap/ui/model/odata/v2/ODataModel";
-import MessageToast from "sap/m/MessageToast";
+import Context from "sap/ui/model/odata/v2/Context";
+import Router from "sap/f/routing/Router";
 
 /**
  * @namespace com.myorg.myapp.controller
@@ -32,7 +31,7 @@ export default class Detail extends BaseController {
 
     onPageNavButtonPress(): void {
         const history = History.getInstance();
-        const previousHash = history.getPreviousHash();
+        const previousHash = history.getPreviousHash() as string;
 
         // "!=" treats [0,"",false] are equal, because one equal sign does not check data types
         // "!==" treats [0,"",false] are not equal, becuase data types are different
@@ -41,15 +40,15 @@ export default class Detail extends BaseController {
             window.history.go(-1);
         } else {
             // user came from external website fallback to main view
-            const router = UIComponent.getRouterFor(this);
+            const router = UIComponent.getRouterFor(this) as Router;
             router.navTo("main", {}, true);
             // set bReplace (replace history) true reset pages stack     
         }
     }
 
     public onDeleteEmployeeButtonPress() {
-        const context = this.getView().getBindingContext();
-        const sPath = context.getPath();
+        const context = this.getView().getBindingContext() as Context;
+        const sPath = context.getPath() as string;
         // "/ZEMPDATASet('00001000')"
         MessageBox.confirm('Are you sure you want to delete this Employee ?', {
             title: "Confirm Deletion",
