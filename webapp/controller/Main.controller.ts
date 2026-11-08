@@ -12,6 +12,7 @@ import MessageToast from "sap/m/MessageToast";
 import MessageBox from "sap/m/MessageBox";
 import Event from "sap/ui/base/Event";
 import ToggleButton from "sap/m/ToggleButton";
+import Sorter from "sap/ui/model/Sorter";
 
 /**
  * @namespace com.myorg.myapp.controller
@@ -19,20 +20,6 @@ import ToggleButton from "sap/m/ToggleButton";
 export default class Main extends BaseController {
 	private bEdit: boolean = false;
 	private sPath: string = "";
-
-	onSearchFieldLiveChange(oEvent: SearchField$LiveChangeEvent) {
-		const filter = [];
-		const query = oEvent.getParameter("newValue");
-		if (query) {
-			filter.push(new Filter("ZempName", FilterOperator.Contains, query));
-		}
-		// get the list we want to filter
-		const list = this.byId("idEmployeesList");
-		// get binding (xml list with data "items")
-		// getBinding(aggregation name)
-		const binding = list?.getBinding("items") as ListBinding;
-		binding?.filter(filter);
-	}
 
 	onEditModeToggle(oEvent: Event) {
 		const oSource = oEvent.getSource() as ToggleButton;

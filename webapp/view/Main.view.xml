@@ -18,13 +18,6 @@
                 type="Emphasized"
                 press=".onAddEmployeeButtonPress" />
         </headerContent>
-        <subHeader>
-            <Toolbar id="idSearchToolbar">
-                <SearchField id="idEmployeeSearchField"
-                    placeholder="Search employee..."
-                    liveChange=".onSearchFieldLiveChange" />
-            </Toolbar>
-        </subHeader>
         <content>
             <List id="idEmployeesList" items="{/ZEMPDATASet}">
                 <items>
