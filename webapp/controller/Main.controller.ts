@@ -34,7 +34,7 @@ export default class Main extends BaseController {
 			this.openForm(context);
 		} else {
 			// before substring '/ZEMPDATASet('00001000')' : after substring  ZEMPDATASet('00001000')
-			// and encodeURIComponent replace / with %27
+			// and encodeURIComponent replace ' with %27
 			const sKey = window.encodeURIComponent(context.getPath().substring(1));
 			UIComponent.getRouterFor(this).navTo("detail", {
 				empId: sKey
